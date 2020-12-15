@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\School\\SYST30025-SoftEngg\\CloakedContent\\CloakedContent\\CloakedContent.csproj": {}
+    "C:\\Users\\WayMaker\\source\\repos\\Adrian-Gonzalez-Madruga\\CloakedContent\\CloakedContent\\CloakedContent.csproj": {}
   },
   "projects": {
-    "D:\\School\\SYST30025-SoftEngg\\CloakedContent\\CloakedContent\\CloakedContent.csproj": {
+    "C:\\Users\\WayMaker\\source\\repos\\Adrian-Gonzalez-Madruga\\CloakedContent\\CloakedContent\\CloakedContent.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\School\\SYST30025-SoftEngg\\CloakedContent\\CloakedContent\\CloakedContent.csproj",
+        "projectUniqueName": "C:\\Users\\WayMaker\\source\\repos\\Adrian-Gonzalez-Madruga\\CloakedContent\\CloakedContent\\CloakedContent.csproj",
         "projectName": "CloakedContent",
-        "projectPath": "D:\\School\\SYST30025-SoftEngg\\CloakedContent\\CloakedContent\\CloakedContent.csproj",
+        "projectPath": "C:\\Users\\WayMaker\\source\\repos\\Adrian-Gonzalez-Madruga\\CloakedContent\\CloakedContent\\CloakedContent.csproj",
         "packagesPath": "C:\\Users\\WayMaker\\.nuget\\packages\\",
-        "outputPath": "D:\\School\\SYST30025-SoftEngg\\CloakedContent\\CloakedContent\\obj\\",
+        "outputPath": "C:\\Users\\WayMaker\\source\\repos\\Adrian-Gonzalez-Madruga\\CloakedContent\\CloakedContent\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",

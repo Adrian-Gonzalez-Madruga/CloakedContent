@@ -27,6 +27,15 @@ namespace CloakedContent.Controllers
         {
             return View();
         }
+        public IActionResult CreatePage()
+        {
+            return View();
+        }
+
+        public IActionResult ModifySite()
+        {
+            return View();
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
