@@ -4,7 +4,49 @@
 }
 
 <style>
-    #divNew, #div1, #div2 {
+
+    #divBody {
+        border: 1px solid black;
+    }
+
+    #divNew {
+        float: left;
+        width: 250px;
+        height: 250px;
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid black;
+    }
+
+    #divDelete {
+        background-color: red;
+        float: left;
+        width: 250px;
+        height: 250px;
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid black;
+    }
+
+    #divLong {
+        float: left;
+        width: 200px;
+        height: 400px;
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid black;
+    }
+
+    #divWide {
+        float: left;
+        width: 400px;
+        height: 200px;
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid black;
+    }
+
+    #divSm {
         float: left;
         width: 200px;
         height: 200px;
@@ -12,9 +54,27 @@
         padding: 10px;
         border: 1px solid black;
     }
+
+    #divMd {
+        float: left;
+        width: 400px;
+        height: 400px;
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid black;
+    }
+
+    #divLg {
+        float: left;
+        width: 800px;
+        height: 800px;
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid black;
+    }
 </style>
 
-<div class="d-flex justify-content-between">
+<div class="d-flex">
     <div class="w-25 p-2">
         <div class="sidebar-heading">Content Block</div>
         <div class="list-group list-group-flush">
@@ -40,31 +100,36 @@
 
         <h2>Drag and Drop</h2>
         <p>Drag the image back and forth between the two div elements.</p>
+        <div id="divBody" ondrop="drop(event)" ondragover="allowDrop(event)">
 
-        <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
-            <h1 id="drag1" draggable="true" ondragstart="drag(event)"> SOME WORD</h1>
+            
         </div>
-
-        <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-
     </div>
     <div class="w-25 p-2">
         <div class="sidebar-heading">Content</div>
         <div class="list-group list-group-flush">
-            <a href="#" class="list-group-item list-group-item-action bg-light">Lorem Ipsum</a>
-            <a href="#" class="list-group-item list-group-item-action bg-light">Some Image</a>
-            <a href="#" class="list-group-item list-group-item-action bg-light">Some Video</a>
-            <a href="#" class="list-group-item list-group-item-action bg-light">Place Holder Text</a>
-            <a href="#" class="list-group-item list-group-item-action bg-light">Profile Picture</a>
+            <button onclick="createDiv('Sm')" class="list-group-item list-group-item-action bg-light">Small</button>
+            <button onclick="createDiv('Md')" class="list-group-item list-group-item-action bg-light">Medium</button>
+            <button onclick="createDiv('Lg')" class="list-group-item list-group-item-action bg-light">Large</button>
+            <button onclick="createDiv('Long')" class="list-group-item list-group-item-action bg-light">Long</button>
+            <button onclick="createDiv('Wide')" class="list-group-item list-group-item-action bg-light">Wide</button>
         </div>
+        <div id="divDelete" ondrop="dropDelete(event)" ondragover="allowDrop(event)"></div>
     </div>
-
 </div>
+
 
 <script>
 
-    var count = 1;
-    var divCount = 2;
+    var dragCount = 0;
+    var divCount = 0;
+
+    function dropDelete(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        document.getElementById(data).remove();
+
+    }
 
     function allowDrop(ev) {
         ev.preventDefault();
@@ -81,20 +146,35 @@
     }
 
     function createPara() {
-        var addNew = document.getElementById('div2');
+        var addNew = document.getElementById('divNew');
         var p = document.createElement("p");
-        
+
         p.id = "drag" + count;
-        p.draggable = "true"
+        p.draggable = "true";
         p.addEventListener('dragstart', function () { drag(event) }, false);
         addNew.append(p);
         p.innerText = "Some Text For A Para";
+    }
 
+    function createDiv(type) {
+        var addNew = document.getElementById('divBody');
+        var d = document.createElement("div");
+
+        d.id = "div" + type;
+        d.draggable = "true";
+        d.addEventListener('dragstart', function () { drag(event) }, false);
+        d.addEventListener('ondragover', function () { allowDrop(event) }, false);
+        d.addEventListener('ondrop', function () { drop(event) }, false);
+        addNew.append(d);
     }
 
 </script>
-<!-- p.id="drag2"
-        p.draggable="true"
-        p.ondragstart="drag(event)"
-    var p = document.createElement("p", [id = "drag1", draggable = "true", ondragstart = "drag(event)"]) -->
-<!-- "<p id='drag1' draggable='true' ondragstart='drag(event)'>" -->
+<!--
+    p.id="drag2"
+    p.draggable="true"
+    p.ondragstart="drag(event)"
+    var p = document.createElement("p", [id = "drag1", draggable = "true", ondragstart = "drag(event)"])
+    <h1 id="drag1" draggable="true" ondragstart="drag(event)"> SOME WORD</h1>
+    "<p id='drag1' draggable='true' ondragstart='drag(event)'>"
+
+    -->
