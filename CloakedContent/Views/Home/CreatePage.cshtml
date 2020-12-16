@@ -62,6 +62,9 @@
 </div>
 
 <script>
+
+    var 
+
     function allowDrop(ev) {
         ev.preventDefault();
     }
@@ -79,10 +82,10 @@
     function createPara() {
         var addNew = document.getElementById('div2');
         var p = document.createElement("p");
-        var count=2
+        
         p.id= "drag"+count
         p.draggable = "true"
-        p.ondragstart=
+        p.addEventListener('dragstart', function () { drag(event) }, false);
         addNew.append(p);
         p.innerText = "Some Text For A Para";
 
