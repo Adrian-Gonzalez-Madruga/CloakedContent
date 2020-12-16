@@ -3,45 +3,94 @@
     ViewData["Title"] = "CreatePage";
 }
 
-    <div class="d-flex justify-content-between">
-        <div class="w-25 p-2">
-            <div class="sidebar-heading">Content Block</div>
-            <div class="list-group list-group-flush">
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Template Selection
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Template 1</a>
-                        <a class="dropdown-item" href="#">Template 2</a>
-                        <a class="dropdown-item" href="#">Template 3</a>
-                    </div>
+<style>
+    #divNew, #div1, #div2 {
+        float: left;
+        width: 200px;
+        height: 200px;
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid black;
+    }
+</style>
+
+<div class="d-flex justify-content-between">
+    <div class="w-25 p-2">
+        <div class="sidebar-heading">Content Block</div>
+        <div class="list-group list-group-flush">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Template Selection
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Template 1</a>
+                    <a class="dropdown-item" href="#">Template 2</a>
+                    <a class="dropdown-item" href="#">Template 3</a>
                 </div>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Title</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Paragraph block</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Square Image</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Circle Image</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Video</a>
             </div>
+            <a href="#" class="list-group-item list-group-item-action bg-light">Title</a>
+            <button onclick="createPara()" class="list-group-item list-group-item-action bg-light">Paragraph block</button>
+            <a href="#" class="list-group-item list-group-item-action bg-light">Square Image</a>
+            <a href="#" class="list-group-item list-group-item-action bg-light">Circle Image</a>
+            <a href="#" class="list-group-item list-group-item-action bg-light">Video</a>
         </div>
-        <div class="w-50 p-2 align-self-stretch text-white bg-dark">
+        <div id="divNew" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    </div>
+    <div class="w-50 p-2 align-self-stretch text-white bg-dark">
 
+        <h2>Drag and Drop</h2>
+        <p>Drag the image back and forth between the two div elements.</p>
 
-            <p>
-                .
-            </p>
-
+        <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h1 id="drag1" draggable="true" ondragstart="drag(event)"> SOME WORD</h1>
         </div>
-        <div class="w-25 p-2">
-            <div class="sidebar-heading">Content</div>
-            <div class="list-group list-group-flush">
-                <a href="#" class="list-group-item list-group-item-action bg-light">Lorem Ipsum</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Some Image</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Some Video</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Place Holder Text</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Profile Picture</a>
-            </div>
-        </div>
+
+        <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 
     </div>
+    <div class="w-25 p-2">
+        <div class="sidebar-heading">Content</div>
+        <div class="list-group list-group-flush">
+            <a href="#" class="list-group-item list-group-item-action bg-light">Lorem Ipsum</a>
+            <a href="#" class="list-group-item list-group-item-action bg-light">Some Image</a>
+            <a href="#" class="list-group-item list-group-item-action bg-light">Some Video</a>
+            <a href="#" class="list-group-item list-group-item-action bg-light">Place Holder Text</a>
+            <a href="#" class="list-group-item list-group-item-action bg-light">Profile Picture</a>
+        </div>
+    </div>
+
 </div>
+
+<script>
+    function allowDrop(ev) {
+        ev.preventDefault();
+    }
+
+    function drag(ev) {
+        ev.dataTransfer.setData("text", ev.target.id);
+    }
+
+    function drop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        ev.target.appendChild(document.getElementById(data));
+    }
+
+    function createPara() {
+        var addNew = document.getElementById('div2');
+        var p = document.createElement("p");
+        var count=2
+        p.id= "drag"+count
+        p.draggable = "true"
+        p.ondragstart=
+        addNew.append(p);
+        p.innerText = "Some Text For A Para";
+
+    }
+
+</script>
+<!-- p.id="drag2"
+        p.draggable="true"
+        p.ondragstart="drag(event)"
+    var p = document.createElement("p", [id = "drag1", draggable = "true", ondragstart = "drag(event)"]) -->
+<!-- "<p id='drag1' draggable='true' ondragstart='drag(event)'>" -->
