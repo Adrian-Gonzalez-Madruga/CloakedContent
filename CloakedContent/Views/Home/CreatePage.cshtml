@@ -63,7 +63,8 @@
 
 <script>
 
-    var 
+    var count = 1;
+    var divCount = 2;
 
     function allowDrop(ev) {
         ev.preventDefault();
@@ -83,7 +84,7 @@
         var addNew = document.getElementById('div2');
         var p = document.createElement("p");
         
-        p.id= "drag"+count
+        p.id = "drag" + count;
         p.draggable = "true"
         p.addEventListener('dragstart', function () { drag(event) }, false);
         addNew.append(p);
