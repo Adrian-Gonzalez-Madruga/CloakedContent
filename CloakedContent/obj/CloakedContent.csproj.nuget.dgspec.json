@@ -1,26 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\WayMaker\\source\\repos\\Adrian-Gonzalez-Madruga\\CloakedContent\\CloakedContent\\CloakedContent.csproj": {}
+    "C:\\Users\\Chris\\Source\\Repos\\CloakedContent\\CloakedContent\\CloakedContent.csproj": {}
   },
   "projects": {
-    "C:\\Users\\WayMaker\\source\\repos\\Adrian-Gonzalez-Madruga\\CloakedContent\\CloakedContent\\CloakedContent.csproj": {
+    "C:\\Users\\Chris\\Source\\Repos\\CloakedContent\\CloakedContent\\CloakedContent.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\WayMaker\\source\\repos\\Adrian-Gonzalez-Madruga\\CloakedContent\\CloakedContent\\CloakedContent.csproj",
+        "projectUniqueName": "C:\\Users\\Chris\\Source\\Repos\\CloakedContent\\CloakedContent\\CloakedContent.csproj",
         "projectName": "CloakedContent",
-        "projectPath": "C:\\Users\\WayMaker\\source\\repos\\Adrian-Gonzalez-Madruga\\CloakedContent\\CloakedContent\\CloakedContent.csproj",
-        "packagesPath": "C:\\Users\\WayMaker\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\WayMaker\\source\\repos\\Adrian-Gonzalez-Madruga\\CloakedContent\\CloakedContent\\obj\\",
+        "projectPath": "C:\\Users\\Chris\\Source\\Repos\\CloakedContent\\CloakedContent\\CloakedContent.csproj",
+        "packagesPath": "C:\\Users\\Chris\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Chris\\Source\\Repos\\CloakedContent\\CloakedContent\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\WayMaker\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\Chris\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -31,6 +29,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -42,6 +41,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "imports": [
             "net461",
             "net462",
@@ -60,7 +60,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
