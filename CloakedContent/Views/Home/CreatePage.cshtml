@@ -1,13 +1,10 @@
 ﻿
+
 @{
     ViewData["Title"] = "CreatePage";
 }
 
 <style>
-
-    #divBody {
-        border: 1px solid black;
-    }
 
     #divNew {
         float: left;
@@ -28,7 +25,7 @@
         border: 1px solid black;
     }
 
-    #divLong {
+    .divLong {
         float: left;
         width: 200px;
         height: 400px;
@@ -37,7 +34,7 @@
         border: 1px solid black;
     }
 
-    #divWide {
+    .divWide {
         float: left;
         width: 400px;
         height: 200px;
@@ -46,7 +43,7 @@
         border: 1px solid black;
     }
 
-    #divSm {
+    .divSm {
         float: left;
         width: 200px;
         height: 200px;
@@ -55,7 +52,7 @@
         border: 1px solid black;
     }
 
-    #divMd {
+    .divMd {
         float: left;
         width: 400px;
         height: 400px;
@@ -64,7 +61,7 @@
         border: 1px solid black;
     }
 
-    #divLg {
+    .divLg {
         float: left;
         width: 800px;
         height: 800px;
@@ -88,10 +85,10 @@
                     <a class="dropdown-item" href="#">Template 3</a>
                 </div>
             </div>
-            <a href="#" class="list-group-item list-group-item-action bg-light">Title</a>
+            <button onclick="createTitle()" class="list-group-item list-group-item-action bg-light">Title</button>
+            <button onclick="createSubTitle()" class="list-group-item list-group-item-action bg-light">Sub Title</button>
             <button onclick="createPara()" class="list-group-item list-group-item-action bg-light">Paragraph block</button>
             <a href="#" class="list-group-item list-group-item-action bg-light">Square Image</a>
-            <a href="#" class="list-group-item list-group-item-action bg-light">Circle Image</a>
             <a href="#" class="list-group-item list-group-item-action bg-light">Video</a>
         </div>
         <div id="divNew" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
@@ -100,8 +97,10 @@
 
         <h2>Drag and Drop</h2>
         <p>Drag the image back and forth between the two div elements.</p>
-        <div id="divBody" ondrop="drop(event)" ondragover="allowDrop(event)">
-
+        <div id="divBody" class="container" ondrop="drop(event)" ondragover="allowDrop(event)" >
+            <div class="divWide" id="d0" ondrop="dropDelete(event)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event)">
+                <h2 id="drag0" draggable="true" ondragstart="drag(event)"> Title Of Chris' Sex Tape</h2>
+            </div>
             
         </div>
     </div>
@@ -114,15 +113,19 @@
             <button onclick="createDiv('Long')" class="list-group-item list-group-item-action bg-light">Long</button>
             <button onclick="createDiv('Wide')" class="list-group-item list-group-item-action bg-light">Wide</button>
         </div>
-        <div id="divDelete" ondrop="dropDelete(event)" ondragover="allowDrop(event)"></div>
+        <div id="divDelete" ondrop="dropDelete(event)" ondragover="allowDrop(event)">
+            <center>
+                <h4>Delete</h4>
+            </center>
+        </div>
     </div>
 </div>
 
 
 <script>
 
-    var dragCount = 0;
-    var divCount = 0;
+    var dragCount = 1;
+    var divCount = 1;
 
     function dropDelete(ev) {
         ev.preventDefault();
@@ -145,28 +148,58 @@
         ev.target.appendChild(document.getElementById(data));
     }
 
-    function createPara() {
-        var addNew = document.getElementById('divNew');
-        var p = document.createElement("p");
-
-        p.id = "drag" + count;
-        p.draggable = "true";
-        p.addEventListener('dragstart', function () { drag(event) }, false);
-        addNew.append(p);
-        p.innerText = "Some Text For A Para";
-    }
-
     function createDiv(type) {
         var addNew = document.getElementById('divBody');
         var d = document.createElement("div");
 
-        d.id = "div" + type;
+        d.className = "div" + type;
+        d.id = "d" + divCount;
         d.draggable = "true";
         d.addEventListener('dragstart', function () { drag(event) }, false);
         d.addEventListener('ondragover', function () { allowDrop(event) }, false);
         d.addEventListener('ondrop', function () { drop(event) }, false);
         addNew.append(d);
+        divCount++;
     }
+
+    function createPara() {
+        var addNew = document.getElementById('divNew');
+        var p = document.createElement("p");
+
+        p.id = "drag" + dragCount;
+        p.draggable = "true";
+        p.addEventListener('dragstart', function () { drag(event) }, false);
+        addNew.append(p);
+        p.innerText = "Some Text For A Para";
+        dragCount++;
+    }
+
+    function createTitle() {
+        var addNew = document.getElementById('divNew');
+        var p = document.createElement("h2");
+
+        p.id = "drag" + dragCount;
+        p.draggable = "true";
+        p.addEventListener('dragstart', function () { drag(event) }, false);
+        addNew.append(p);
+        p.innerText = "Title";
+        dragCount++;
+    }
+
+    function createSubTitle() {
+        var addNew = document.getElementById('divNew');
+        var p = document.createElement("h4");
+
+        p.id = "drag" + dragCount;
+        p.draggable = "true";
+        p.addEventListener('dragstart', function () { drag(event) }, false);
+        addNew.append(p);
+        p.innerText = "Sub Title";
+        dragCount++;
+    }
+
+
+
 
 </script>
 <!--
